@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap"
 
 class CustomFooter extends Component {
     render() {
-        return (<Container><h1>Footer</h1></Container>);
+        return (<Container className="text-center"><p>David Dudas &copy; 2021</p></Container>);
     }
 }
 
