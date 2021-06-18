@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { Container } from "react-bootstrap"
 
 class CustomFooter extends Component {
     render() {
-        return (<h1>Footer</h1>);
+        return (<Container><h1>Footer</h1></Container>);
     }
 }
 
