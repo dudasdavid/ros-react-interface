@@ -69,8 +69,18 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+Install nodejs:
+cd ~
+curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt install nodejs
 
-ROS:
+After checkout:
+npm install
+
+Install ROS websocket:
 sudo apt install ros-melodic-rosbridge-server
+
+Run ROS nodes:
 roslaunch rosbridge_server rosbridge_websocket.launch
 rosrun turtlesim turtlesim_node
