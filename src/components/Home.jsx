@@ -3,6 +3,7 @@ import Connection from "./Connection.jsx"
 import Teleoperation from './Teleoperation.jsx';
 import RobotState from './RobotState.jsx'
 import Map from './Map.jsx'
+import Camera from './Camera.jsx'
 import { Row, Col, Container, Button } from "react-bootstrap"
 
 class Home extends Component {
@@ -22,17 +23,27 @@ class Home extends Component {
                     </Row>
                     <Row>
                         <Col>
-                            <Teleoperation />
+                            <Row>
+                                <Teleoperation />
+                            </Row>
+                            <Row>
+                                <RobotState />
+                            </Row>
                         </Col>
+
                         <Col>
-                            <Map />
+                            <Row>
+                                <h1>CAMERA</h1>
+                                <Camera />
+                            </Row>
+                            <Row>
+                                <h1>MAP</h1>
+                                <Map />
+                            </Row>
                         </Col>
+
                     </Row>
-                    <Row>
-                        <Col>
-                            <RobotState />
-                        </Col>
-                    </Row>
+
 
                 </Container>
             </div >
