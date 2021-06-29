@@ -33,6 +33,12 @@ class RobotState extends Component {
             console.log("connection closed!");
             this.setState({ connected: false });
 
+            this.setState({ x: NaN });
+            this.setState({ y: NaN });
+            this.setState({ theta: NaN });
+            this.setState({ x_vel: NaN });
+            this.setState({ theta_vel: NaN });
+
             // try to reconnect
             setTimeout(() => {
                 try {
