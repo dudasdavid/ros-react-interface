@@ -71,26 +71,28 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 Install nodejs:
 cd ~
-curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
+curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
 sudo apt install nodejs
 
 After checkout:
 npm install
 
-Install ROS websocket:
+Install ROS packages:
 sudo apt install ros-melodic-rosbridge-server
+sudo apt install ros-melodic-turtlebot3-gazebo
+sudo apt install ros-melodic-turtlebot3-navigation
+sudo apt install ros-melodic-web-video-server
+git clone https://github.com/dudasdavid/robot_pose_publisher and catkin_make
 
 Run ROS nodes:
 roslaunch rosbridge_server rosbridge_websocket.launch
+rosrun robot_pose_publisher robot_pose_publisher
+rosrun web_video_server web_video_server
 
-
-rosrun turtlesim turtlesim_node
-
-or
 export TURTLEBOT3_MODEL=waffle
 roslaunch turtlebot3_gazebo turtlebot3_world.launch
 roslaunch turtlebot3_navigation turtlebot3_navigation.launch
 
-install:
-sudo apt install ros-melodic-turtlebot3-gazebo
+
+
