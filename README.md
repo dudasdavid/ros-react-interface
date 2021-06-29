@@ -83,4 +83,14 @@ sudo apt install ros-melodic-rosbridge-server
 
 Run ROS nodes:
 roslaunch rosbridge_server rosbridge_websocket.launch
+
+
 rosrun turtlesim turtlesim_node
+
+or
+export TURTLEBOT3_MODEL=waffle
+roslaunch turtlebot3_gazebo turtlebot3_world.launch
+roslaunch turtlebot3_navigation turtlebot3_navigation.launch
+
+install:
+sudo apt install ros-melodic-turtlebot3-gazebo
