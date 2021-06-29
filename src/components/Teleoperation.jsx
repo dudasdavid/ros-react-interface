@@ -3,13 +3,17 @@ import { Joystick } from 'react-joystick-component';
 import Config from "../scripts/config.js"
 
 class Teleoperation extends Component {
-    state = { ros: null, }
+    state = {
+        ros: null,
+        connected: false,
+    }
 
     constructor() {
         super();
         this.init_connection();
 
         this.handleMove = this.handleMove.bind(this);
+        this.handleStop = this.handleStop.bind(this);
     }
 
     init_connection() {
@@ -49,7 +53,7 @@ class Teleoperation extends Component {
 
     }
 
-    handleMove() {
+    handleMove(event) {
         console.log("handle move");
         var cmd_vel = new window.ROSLIB.Topic({
             ros: this.state.ros,
@@ -59,7 +63,30 @@ class Teleoperation extends Component {
 
         var twist = new window.ROSLIB.Message({
             linear: {
-                x: 2,
+                x: event.y / 100,
+                y: 0,
+                z: 0,
+            },
+            angular: {
+                x: 0,
+                y: 0,
+                z: -event.x / 100,
+            }
+        });
+
+        cmd_vel.publish(twist);
+    }
+    handleStop(event) {
+        console.log("handle stop")
+        var cmd_vel = new window.ROSLIB.Topic({
+            ros: this.state.ros,
+            name: Config.CMD_VEL_TOPIC,
+            messageType: "geometry_msgs/Twist"
+        });
+
+        var twist = new window.ROSLIB.Message({
+            linear: {
+                x: 0,
                 y: 0,
                 z: 0,
             },
@@ -71,9 +98,6 @@ class Teleoperation extends Component {
         });
 
         cmd_vel.publish(twist);
-    }
-    handleStop() {
-        console.log("handle stop")
     }
 
     render() {
